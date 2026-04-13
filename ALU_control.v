@@ -8,22 +8,22 @@ module ALU_Control(
     
     always @(*) begin
         case (ALU_Op)
-            00: ALU_Control_outp = 010;
+            00: ALU_Control_outp = 010; // add
             
-            01: ALU_Control_outp = 110;
+            01: ALU_Control_outp = 110; // sub
             
-            10: begin
+            10: begin // R-type
                 case (SignExtend)
-                    100000: ALU_Control_outp = 010;
-                    100010: ALU_Control_outp = 110;
-                    100100: ALU_Control_outp = 000;
-                    100101: ALU_Control_outp = 001;
-                    101010: ALU_Control_outp = 111;
-                    default: ALU_Control_outp = 010;
+                    100000: ALU_Control_outp = 010; // add
+                    100010: ALU_Control_outp = 110; // sub
+                    100100: ALU_Control_outp = 000; // AND
+                    100101: ALU_Control_outp = 001; // OR
+                    101010: ALU_Control_outp = 111; // set on less than
+                    default: ALU_Control_outp = 010; // default to add
                 endcase
             end
             
-            default: ALU_Control_outp = 010;
+            default: ALU_Control_outp = 010; // default to add
         endcase
     end
     
