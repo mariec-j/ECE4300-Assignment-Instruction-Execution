@@ -3,6 +3,9 @@
 module adder(
     input [31:0] inp_1,
     input [31:0] inp_2,
-    input [31:0] Add_Result
+    output [31:0] Add_Result
     );
+    
+    assign Add_Result = inp_1 + inp_2;
+    
 endmodule
