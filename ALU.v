@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 module ALU(
-    input [31:0] ReadData1,
-    input [31:0] Data2,
+    input [31:0] ReadData1, //a
+    input [31:0] Data2, //b
     input  [2:0]  control, //added bc she had this
     output [31:0] ALU_Result,
     output zero_flag
