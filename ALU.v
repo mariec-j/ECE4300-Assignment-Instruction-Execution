@@ -7,7 +7,7 @@ module ALU(
     output [31:0] ALU_Result,
     output zero_flag
     );
-endmodule
+
 
 parameter ALUadd = 3'b010,
 parameter ALUsub = 3'b110,
@@ -24,8 +24,12 @@ ALUand: result = a & b;
 ALUor: result = a | b;
 
 
-ALUslt: result = a < b ? 1 - sign_mismatch // (1)
+ALUslt: ALU_Result = ReadData1 < Data2 ? 1 - sign_mismatch // (1)
 : 0 + sign_mismatch; // (0)
-default: result = 32'bX; // control = ALUx | *
+
+default: ALU_Result = 32'bX; // control = ALUx | *
     endcase
 end
+assign zero = (result == 0) ? 1 : 0;
+
+endmodule
