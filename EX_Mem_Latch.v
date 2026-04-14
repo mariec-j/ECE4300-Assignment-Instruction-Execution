@@ -21,4 +21,32 @@ module EX_Mem_Latch(
     output [31:0]   EX_Mem_Latch_ReadData2_ex_mem,
     output [4:0]    EX_Mem_Latch_muxOut_5bit
     );
+
+    always @(posedge clk or posedge rst)begin
+    if(rst)begin
+//outputs
+EX_Mem_Latch_WB <= 2'b0;
+EX_Mem_Latch_Mem <= 3'b0;
+EX_Mem_Latch_Add_Result <= 32'b0;
+EX_Mem_Latch_Zero <= 0;
+EX_Mem_Latch_ALU_Result <= 32'b0;
+EX_Mem_Latch_ReadData2_ex_mem <= 32'b0;
+EX_Mem_Latch_muxOut_5bit <= 5'b0;
+
+    end
+
+   if(clk)begin
+//outputs
+EX_Mem_Latch_WB <= WB;
+EX_Mem_Latch_Mem <= Mem;
+EX_Mem_Latch_Add_Result <= Add_Result; 
+EX_Mem_Latch_Zero <= Zero;
+EX_Mem_Latch_ALU_Result <= ALU_Result;
+EX_Mem_Latch_ReadData2_ex_mem <= ReadData2_ex_mem;
+EX_Mem_Latch_muxOut_5bit <= muxOut_5bit;
+
+   end
+    end 
+
+
 endmodule
