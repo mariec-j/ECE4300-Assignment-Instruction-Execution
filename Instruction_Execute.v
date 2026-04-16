@@ -42,16 +42,16 @@ wire [4:0] mux_5_out;//output of second mux
     .Add_Result(adder_32_out)
 
 //ALU_control
-    .ALU_Op(),
-    .SignExtend(),
+    .ALU_Op(ALU_Op),
+    .SignExtend(SignExtend[5:0]),
     .ALU_Control_outp(ALU_control_out),
 
 //ALU
     .ReadData1(ReadData1), //a
-    .Data2(), //b
-    .control(), //added bc she had this
-    .ALU_Result(),
-    .zero_flag()
+    .Data2(mux_32_out), //b
+    .control(ALU_control_out), //added bc she had this
+    .ALU_Result(alu_32_out),
+    .zero_flag(Zero)
 
 //Mux_32bit
     .sel(ALU_Src),
