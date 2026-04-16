@@ -75,7 +75,7 @@ Instruction_Execute UUT(
 // testing ALU_control and ALU
 // Changing ALU_Op and Sign extend to see if output is as intended
     #10 ALU_Op = 0; // (Restating... lol) LW/SW,    ALU_control_out = 010,  ALU_Result = 13
-    #10 ALU_Op = 2'b01; // Branch Equal,               ALU_control_out = 110,  ALU_result = -1
+    #10 ALU_Op = 2'b01; // Branch Equal,            ALU_control_out = 110,  ALU_result = -1
     #10 ALU_Op = 2'b10; // R-type,
         SignExtend[5:0] = 32'b100000; // add,       ALU_control_out = 010,  ALU_Result = 13
     #10 SignExtend[5:0] = 32'b100010; // sub,       ALU_control_out = 110,  ALU_Result = -1
