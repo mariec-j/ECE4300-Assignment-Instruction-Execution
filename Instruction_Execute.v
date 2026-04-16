@@ -39,12 +39,12 @@ wire [4:0] mux_5_out;//output of second mux
 //
     .inp_1(NPC),
     .inp_2(SignExtend),
-    .Add_Result()
+    .Add_Result(adder_32_out)
 
 //ALU_control
     .ALU_Op(),
     .SignExtend(),
-    .ALU_Control_outp(),
+    .ALU_Control_outp(ALU_control_out),
 
 //ALU
     .ReadData1(ReadData1), //a
@@ -53,12 +53,17 @@ wire [4:0] mux_5_out;//output of second mux
     .ALU_Result(),
     .zero_flag()
 
-//Mux
+//Mux_32bit
+    .sel(ALU_Src),
+    .in_1(ReadData1),
+    .in_2(SignExtend),
+    .outp(mux_32_out)
+
+//Mux_5bit
     .sel(ALU_Src),
     .in_1(Instr_2016),
     .in_2(Instr_1511),
-    .outp()
-
+    .outp(mux_5_out)
 
 //Latch
 // - - - - - - inputs - - - - - -
@@ -66,8 +71,8 @@ wire [4:0] mux_5_out;//output of second mux
     .WB(WB),
     .Mem(Mem),
     .Add_Result(Add_Result), 
-    .Zero(),
-    .ALU_Result(),
+    .Zero(Zero),
+    .ALU_Result(alu_32_out),
     .ReadData2_ex_mem(),
     .muxOut_5bit(),
     .clk(clk),
