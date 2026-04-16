@@ -53,9 +53,10 @@ module Instruction_Execute(
 
 //Latch
 // - - - - - - inputs - - - - - -
+//Adder, ALU, ReadData2, Mux all feed into latch
     .WB(WB),
     .Mem(Mem),
-    .Add_Result(),
+    .Add_Result(Add_Result), 
     .Zero(),
     .ALU_Result(),
     .ReadData2_ex_mem(),
@@ -63,6 +64,7 @@ module Instruction_Execute(
     .clk(clk),
     .rst(rst),
 // - - - - - - outputs - - - - - -
+//THIS COMES FROM UP TOP OF FILE
     .EX_Mem_Latch_WB(IE_WB),
     .EX_Mem_Latch_Mem(IE_Mem),
     .EX_Mem_Latch_Add_Result(Add_Result),
