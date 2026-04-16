@@ -21,12 +21,12 @@ always@* begin
         ALUsub: result = ReadData1 - Data2;
         ALUand: result = ReadData1 & Data2;
         ALUor: result = ReadData1 | Data2;
-        ALUslt: result = ReadData1 < Data2 ? 1:0; //
+        ALUslt: result = ($signed(ReadData1) < $signed(Data2))? 32'd1:32'd0; //
         default: result = 0; // control = ALUx 
     endcase
 end
 
-assign zero = (result == 0) ? 1 : 0;
-assign ALU_result = result;
+assign zero_flag = (result == 0) ? 1 : 0;
+assign ALU_Result = result;
 
 endmodule
