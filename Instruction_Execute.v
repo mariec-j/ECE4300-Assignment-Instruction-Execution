@@ -73,8 +73,8 @@ wire [4:0] mux_5_out;//output of second mux
     .Add_Result(Add_Result), 
     .Zero(Zero),
     .ALU_Result(alu_32_out),
-    .ReadData2_ex_mem(),
-    .muxOut_5bit(),
+    .ReadData2_ex_mem(ReadData2),
+    .muxOut_5bit(mux_5_out),
     .clk(clk),
     .rst(rst),
 // - - - - - - outputs - - - - - -
