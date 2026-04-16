@@ -26,3 +26,45 @@ module Instruction_Execute(
     output [4:0]    muxOut_5bit
     );
 endmodule
+//Adder
+    .inp_1(),
+    .inp_2,
+    .Add_Result
+
+//ALU_control
+    .ALU_Op,
+    .SignExtend,
+    .ALU_Control_outp,
+
+//ALU
+    .ReadData1, //a
+    .Data2, //b
+    .control, //added bc she had this
+    . ALU_Result,
+    .zero_flag
+
+//Latch
+// - - - - - - inputs - - - - - -
+    .WB,
+    .Mem,
+    .Add_Result,
+    .Zero,
+    .ALU_Result,
+    .ReadData2_ex_mem,
+    .muxOut_5bit,
+    .clk,
+    .rst,
+// - - - - - - outputs - - - - - -
+    .EX_Mem_Latch_WB,
+    .EX_Mem_Latch_Mem,
+    .EX_Mem_Latch_Add_Result,
+   .EX_Mem_Latch_Zero,
+    .EX_Mem_Latch_ALU_Result,
+    .EX_Mem_Latch_ReadData2_ex_mem,
+    .EX_Mem_Latch_muxOut_5bit
+
+//Mux
+    .sel,
+    .in_1,
+    .in_2,
+    .outp
