@@ -8,7 +8,7 @@ module Instruction_Execute(
     input [31:0]    ReadData2,
     input           ALU_Src,
     input [31:0]    SignExtend,
-    input [2:0]     ALU_Op,
+    input [1:0]     ALU_Op,
     input [4:0]     Instr_2016,
     input [4:0]     Instr_1511,
     input           RegDst,
