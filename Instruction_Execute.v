@@ -30,7 +30,7 @@ module Instruction_Execute(
 wire [31:0] adder_32_out; //output of adder
 wire [31:0] mux_32_out; //mux 32 bit output
 wire [31:0] alu_32_out; // 32 bit output of alue
-wire ALU_control_out;//output of ALU control
+wire [2:0] ALU_control_out;//output of ALU control
 wire [4:0] mux_5_out;//output of second mux
 
 
