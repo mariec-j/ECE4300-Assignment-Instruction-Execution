@@ -27,30 +27,34 @@ module IE_tb();
 
 Instruction_Execute UUT(
 // - - - - - - inputs - - - - - -
-    .NPC(),
-    .ReadData1(),
-    .ReadData2(),
-    .ALU_Src(),
-    .SignExtend(),
-    .ALU_Op(),
-    .Instr_2016(),
-    .Instr_1511(),
-    .RegDst(),
-    .WB(),
-    .Mem(),
-    .clk(),
-    .rst(),
+    .NPC(NPC),
+    .ReadData1(ReadData1),
+    .ReadData2(ReadData2),
+    .ALU_Src(ALU_Src),
+    .SignExtend(SignExtend),
+    .ALU_Op(ALU_Op),
+    .Instr_2016(Instr_2016),
+    .Instr_1511(Instr_1511),
+    .RegDst(RegDst),
+    .WB(WB),
+    .Mem(Mem),
+    .clk(clk),
+    .rst(rst),
 // - - - - - - outputs - - - - - -
-    .IE_WB(),
-    .IE_Mem(),
-    .Add_Result(),
-    .Zero(),
-    .ALU_Result(),
-    .ReadData2_ex_mem(),
-    .muxOut_5bit()
+    .IE_WB(IE_WB),
+    .IE_Mem(IE_Mem),
+    .Add_Result(Add_Result),
+    .Zero(Zero),
+    .ALU_Result(ALU_Result),
+    .ReadData2_ex_mem(ReadData2_ex_mem),
+    .muxOut_5bit(muxOut_5bit)
 );
+
+    always forever #5 clk = ~clk;
     
-    always forever #5 clk = ~clk ;    
+    initial begin
+    
+    end
 
 
 endmodule
