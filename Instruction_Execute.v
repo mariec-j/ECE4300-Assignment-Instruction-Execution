@@ -42,6 +42,7 @@ endmodule
     .control(), //added bc she had this
     . ALU_Result(),
     .zero_flag()
+    
 
 //Latch
 // - - - - - - inputs - - - - - -
