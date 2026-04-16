@@ -22,8 +22,8 @@ module EX_Mem_Latch(
     output reg [4:0]    EX_Mem_Latch_muxOut_5bit
     );
 
-    always @(posedge clk or posedge rst)begin
-        if(rst)begin
+    always @(posedge clk or negedge rst)begin
+        if(!rst)begin
             //outputs
             EX_Mem_Latch_WB <= 2'b0;
             EX_Mem_Latch_Mem <= 3'b0;
