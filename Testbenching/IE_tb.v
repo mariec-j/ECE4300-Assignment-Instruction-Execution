@@ -91,7 +91,8 @@ Instruction_Execute UUT(
 // test the 5 bit mux
     #10 RegDst = 0;     // Restating,   muxOut_5bit = 5'h6
     #10 RegDst = 1;     //              muxOut_5bit = 5'h7
-	
+	#10 // let it marinate
+	$finish;
     end
 
 endmodule
