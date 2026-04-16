@@ -17,7 +17,6 @@ module Instruction_Execute(
     input           clk,
     input           rst,
 // - - - - - - outputs - - - - - -
-//These all go for LATCH
     output [1:0]    IE_WB,
     output [2:0]    IE_Mem,
     output [31:0]   Add_Result,
@@ -27,9 +26,19 @@ module Instruction_Execute(
     output [4:0]    muxOut_5bit
     );
 
+//internal wires the 5 outputs of aadder, ALU, MUX, ALUcontrol, Mux2
+wire [31:0] adder_32_out; //output of adder
+wire [31:0] mux_32_out; //mux 32 bit output
+wire [31:0] alu_32_out; // 32 bit output of alue
+wire ALU_control_out;//output of ALU control
+wire [4:0] mux_5_out;//output of second mux
+
+
+
 //Adder
-    .inp_1(),
-    .inp_2(),
+//
+    .inp_1(NPC),
+    .inp_2(SignExtend),
     .Add_Result()
 
 //ALU_control
@@ -38,22 +47,22 @@ module Instruction_Execute(
     .ALU_Control_outp(),
 
 //ALU
-    .ReadData1(), //a
+    .ReadData1(ReadData1), //a
     .Data2(), //b
     .control(), //added bc she had this
     .ALU_Result(),
     .zero_flag()
 
 //Mux
-    .sel(),
-    .in_1(),
-    .in_2(),
+    .sel(ALU_Src),
+    .in_1(Instr_2016),
+    .in_2(Instr_1511),
     .outp()
 
 
 //Latch
 // - - - - - - inputs - - - - - -
-//Adder, ALU, ReadData2, Mux all feed into latch
+
     .WB(WB),
     .Mem(Mem),
     .Add_Result(Add_Result), 
