@@ -17,6 +17,7 @@ module Instruction_Execute(
     input           clk,
     input           rst,
 // - - - - - - outputs - - - - - -
+//These all go for LATCH
     output [1:0]    IE_WB,
     output [2:0]    IE_Mem,
     output [31:0]   Add_Result,
@@ -25,7 +26,7 @@ module Instruction_Execute(
     output [31:0]   ReadData2_ex_mem,
     output [4:0]    muxOut_5bit
     );
-endmodule
+
 //Adder
     .inp_1(),
     .inp_2(),
@@ -40,32 +41,35 @@ endmodule
     .ReadData1(), //a
     .Data2(), //b
     .control(), //added bc she had this
-    . ALU_Result(),
-    .zero_flag()
-    
-
-//Latch
-// - - - - - - inputs - - - - - -
-    .WB(),
-    .Mem(),
-    .Add_Result(),
-    .Zero(),
     .ALU_Result(),
-    .ReadData2_ex_mem(),
-    .muxOut_5bit(),
-    .clk(),
-    .rst(),
-// - - - - - - outputs - - - - - -
-    .EX_Mem_Latch_WB(),
-    .EX_Mem_Latch_Mem(),
-    .EX_Mem_Latch_Add_Result(),
-   .EX_Mem_Latch_Zero(),
-    .EX_Mem_Latch_ALU_Result(),
-    .EX_Mem_Latch_ReadData2_ex_mem(),
-    .EX_Mem_Latch_muxOut_5bit()
+    .zero_flag()
 
 //Mux
     .sel(),
     .in_1(),
     .in_2(),
     .outp()
+
+
+//Latch
+// - - - - - - inputs - - - - - -
+    .WB(WB),
+    .Mem(Mem),
+    .Add_Result(),
+    .Zero(),
+    .ALU_Result(),
+    .ReadData2_ex_mem(),
+    .muxOut_5bit(),
+    .clk(clk),
+    .rst(rst),
+// - - - - - - outputs - - - - - -
+    .EX_Mem_Latch_WB(IE_WB),
+    .EX_Mem_Latch_Mem(IE_Mem),
+    .EX_Mem_Latch_Add_Result(Add_Result),
+   .EX_Mem_Latch_Zero(Zero),
+    .EX_Mem_Latch_ALU_Result(ALU_Result),
+    .EX_Mem_Latch_ReadData2_ex_mem(ReadData2_ex_mem),
+    .EX_Mem_Latch_muxOut_5bit(muxOut_5bit)
+
+
+endmodule
