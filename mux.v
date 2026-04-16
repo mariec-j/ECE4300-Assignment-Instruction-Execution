@@ -9,7 +9,7 @@ module mux #(parameter WIDTH_inp =  32)(
     );
     
     always @(*) begin
-        outp = sel? in_1:in_2;
+        outp = sel? in_2:in_1;
     end
     
 endmodule
