@@ -17,7 +17,7 @@ module Instruction_Execute(
     input           clk,
     input           rst,
 // - - - - - - outputs - - - - - -
-//These all go for LATCH
+//These all come from LATCH
     output [1:0]    IE_WB,
     output [2:0]    IE_Mem,
     output [31:0]   Add_Result,
