@@ -43,7 +43,7 @@ adder adder01 (
 );
 
 //ALU_control
-ALU_control ALU_control01(
+ALU_Control ALU_control01(
     .ALU_Op(ALU_Op),
     .SignExtend(SignExtend[5:0]),
     .ALU_Control_outp(ALU_control_out)
